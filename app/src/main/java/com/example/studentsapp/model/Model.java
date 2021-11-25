@@ -8,7 +8,7 @@ public class Model {
 
     private Model(){
         for (int i=0 ; i<100 ;i++){
-            Student s = new Student("name"+i , "id_"+i , false);
+            Student s = new Student("name"+i , "id_"+i ,"054-"+i ,"add_"+i , false);
             data.add(s);
         }
     }

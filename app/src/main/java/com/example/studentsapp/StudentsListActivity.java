@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import java.util.List;
 public class StudentsListActivity extends AppCompatActivity {
     RecyclerView studentsList;
     List<Student> data;
+    Button newStudent_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,10 @@ public class StudentsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_list);
 
         data = Model.instance.getAllStudents();
+        Intent intent_details = new Intent(this ,StudentDetailsActivity.class);
+        Intent intent_add = new Intent(this ,NewStudentActivity.class);
 
+        newStudent_btn=findViewById(R.id.studentList_addNew_btn);
         studentsList = findViewById(R.id.studentslist_list_rv);
         studentsList.setHasFixedSize(true);
         studentsList.setLayoutManager(new LinearLayoutManager(this));
@@ -38,6 +44,13 @@ public class StudentsListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Log.d("TAG" ,"row number :"+position);
+                startActivity(intent_details);
+            }
+        });
+        newStudent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent_add);
             }
         });
     }
