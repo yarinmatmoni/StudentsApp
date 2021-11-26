@@ -35,7 +35,6 @@ public class NewStudentActivity extends AppCompatActivity {
         addressStudent = findViewById(R.id.newStudent_address_pt);
         cbStudent = findViewById(R.id.newStudent_cb);
 
-
         cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

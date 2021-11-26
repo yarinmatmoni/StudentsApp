@@ -19,6 +19,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
     Button backToList_btn,editStudent_btn;
     TextView idStudent_d,nameStudent_d,phoneStudent_d,addressStudent_d;
     CheckBox cbStudent_d;
+    int posStudent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +37,9 @@ public class StudentDetailsActivity extends AppCompatActivity {
         addressStudent_d = findViewById(R.id.studentDatails_address_tv);
         cbStudent_d = findViewById(R.id.studentDetails_cb);
 
-        Bundle extras = getIntent().getExtras();
+        Bundle extras = getIntent().getExtras(); //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(extras != null){
-            int posStudent = extras.getInt("posS");
+            posStudent = extras.getInt("posS");
             idStudent_d.setText("ID : " + data.get(posStudent).getId());
             nameStudent_d.setText("Name : " + data.get(posStudent).getName());
             phoneStudent_d.setText("Phone : " + data.get(posStudent).getPhone());
@@ -46,19 +47,29 @@ public class StudentDetailsActivity extends AppCompatActivity {
             cbStudent_d.setChecked(data.get(posStudent).isCheck());
         }
 
-        backToList_btn.setOnClickListener(new View.OnClickListener() {
+        backToList_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        editStudent_btn.setOnClickListener(new View.OnClickListener() {
+        editStudent_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             @Override
             public void onClick(View v) {
+                intent_edit.putExtra("posS",posStudent);
                 startActivity(intent_edit);
             }
         });
     }
 
+    @Override //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    protected void onResume() {
+        super.onResume();
+        nameStudent_d.setText("Name : " + Model.instance.getStudent(posStudent).getName());
+        idStudent_d.setText("ID : " +  Model.instance.getStudent(posStudent).getId());
+        phoneStudent_d.setText("Phone : " + Model.instance.getStudent(posStudent).getPhone());
+        addressStudent_d.setText("Address : " + Model.instance.getStudent(posStudent).getAddress());
+        cbStudent_d.setChecked(Model.instance.getStudent(posStudent).isCheck());
+    }
 }

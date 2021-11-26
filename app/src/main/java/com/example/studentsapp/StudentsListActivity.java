@@ -44,10 +44,6 @@ public class StudentsListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Log.d("TAG" ,"row number :"+position);
-                //String id_s = data.get(position).getId();
-//                String name_s = data.get(position).getName();
-//                String phone_s = data.get(position).getPhone();
-//                String address_s = data.get(position).getAddress();
                 intent_details.putExtra("posS",position);
                 startActivity(intent_details);
             }

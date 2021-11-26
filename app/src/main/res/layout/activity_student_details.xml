@@ -144,5 +144,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentDatails_address_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/studentDatails_address_tv"
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
