@@ -22,7 +22,7 @@ public class Model {
         return data.get(index);
     }
     public void deleteStudent(int index){//eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        data.remove(data.get(index));
+        data.remove(index);
     }
     public void addStudent(String name, String id,String phone,String address, boolean check){
         Student s = new Student(name,id,phone,address,check);
