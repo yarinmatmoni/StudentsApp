@@ -7,7 +7,7 @@ public class Model {
     public static final Model instance = new Model();
 
     private Model(){
-        for (int i=0 ; i<30 ;i++){
+        for (int i=0 ; i<4 ;i++){
             Student s = new Student("name"+i , "id_"+i ,"054-"+i ,"add_"+i , false);
             data.add(s);
         }
