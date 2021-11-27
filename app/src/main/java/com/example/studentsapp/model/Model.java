@@ -7,7 +7,7 @@ public class Model {
     public static final Model instance = new Model();
 
     private Model(){
-        for (int i=0 ; i<100 ;i++){
+        for (int i=0 ; i<30 ;i++){
             Student s = new Student("name"+i , "id_"+i ,"054-"+i ,"add_"+i , false);
             data.add(s);
         }
@@ -24,8 +24,8 @@ public class Model {
     public void deleteStudent(int index){//eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         data.remove(data.get(index));
     }
-    public void addStudent(Student student){
-        data.add(student);
+    public void addStudent(String name, String id,String phone,String address, boolean check){
+        Student s = new Student(name,id,phone,address,check);
+        data.add(s);
     }
-
 }

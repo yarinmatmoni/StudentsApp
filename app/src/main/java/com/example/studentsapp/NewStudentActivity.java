@@ -16,8 +16,7 @@ import com.example.studentsapp.model.Student;
 import java.util.List;
 
 public class NewStudentActivity extends AppCompatActivity {
-    Button cancel_btn;
-    Button saveStudent_btn;
+    Button cancel_btn,saveStudent_btn;
     EditText nameStudent,idStudent,phoneStudent,addressStudent;
     CheckBox cbStudent;
 
@@ -34,6 +33,15 @@ public class NewStudentActivity extends AppCompatActivity {
         phoneStudent = findViewById(R.id.newStudent_phone_pt);
         addressStudent = findViewById(R.id.newStudent_address_pt);
         cbStudent = findViewById(R.id.newStudent_cb);
+
+        saveStudent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Model.instance.addStudent(nameStudent.getText().toString(), idStudent.getText().toString(), phoneStudent.getText().toString(),
+                        addressStudent.getText().toString(),cbStudent.isChecked());
+                finish();
+            }
+        });
 
         cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override

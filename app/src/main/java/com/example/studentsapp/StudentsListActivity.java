@@ -23,7 +23,7 @@ public class StudentsListActivity extends AppCompatActivity {
     RecyclerView studentsList;
     List<Student> data;
     Button newStudent_btn;
-
+    MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +38,11 @@ public class StudentsListActivity extends AppCompatActivity {
         studentsList.setHasFixedSize(true);
         studentsList.setLayoutManager(new LinearLayoutManager(this));
 
-        MyAdapter adapter= new MyAdapter();
+        adapter= new MyAdapter();
         studentsList.setAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d("TAG" ,"row number :"+position);
                 intent_details.putExtra("posS",position);
                 startActivity(intent_details);
             }
@@ -55,7 +54,6 @@ public class StudentsListActivity extends AppCompatActivity {
             }
         });
     }
-
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView nameStudentTv;
@@ -74,7 +72,7 @@ public class StudentsListActivity extends AppCompatActivity {
                     listener.onItemClick(pos);
                 }
             });
-            cb.setOnClickListener(new View.OnClickListener() { //???????????????????????
+            cb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos=getAdapterPosition();
@@ -114,5 +112,12 @@ public class StudentsListActivity extends AppCompatActivity {
         public int getItemCount() {
             return data.size();
         }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 }

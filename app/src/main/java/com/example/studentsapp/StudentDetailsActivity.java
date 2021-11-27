@@ -37,7 +37,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
         addressStudent_d = findViewById(R.id.studentDatails_address_tv);
         cbStudent_d = findViewById(R.id.studentDetails_cb);
 
-        Bundle extras = getIntent().getExtras(); //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Bundle extras = getIntent().getExtras();
         if(extras != null){
             posStudent = extras.getInt("posS");
             idStudent_d.setText("ID : " + data.get(posStudent).getId());
@@ -47,14 +47,14 @@ public class StudentDetailsActivity extends AppCompatActivity {
             cbStudent_d.setChecked(data.get(posStudent).isCheck());
         }
 
-        backToList_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        backToList_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        editStudent_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        editStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent_edit.putExtra("posS",posStudent);
@@ -63,7 +63,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
         });
     }
 
-    @Override //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @Override
     protected void onResume() {
         super.onResume();
         nameStudent_d.setText("Name : " + Model.instance.getStudent(posStudent).getName());

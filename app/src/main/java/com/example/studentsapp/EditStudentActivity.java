@@ -35,7 +35,7 @@ public class EditStudentActivity extends AppCompatActivity {
         addressStudentET = findViewById(R.id.editStudent_address_pt);
         cbStudent = findViewById(R.id.editStudent_cb);
 
-        Bundle extras = getIntent().getExtras(); //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Bundle extras = getIntent().getExtras();
         if(extras != null){
             posStudent = extras.getInt("posS");
             nameStudentET.setText(data.get(posStudent).getName());
@@ -45,7 +45,7 @@ public class EditStudentActivity extends AppCompatActivity {
             cbStudent.setChecked(data.get(posStudent).isCheck());
         }
 
-        saveStudent_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        saveStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Model.instance.getStudent(posStudent).setName(nameStudentET.getText().toString());
@@ -57,7 +57,7 @@ public class EditStudentActivity extends AppCompatActivity {
             }
         });
 
-        deleteEdit_btn.setOnClickListener(new View.OnClickListener() { //eden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        deleteEdit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Model.instance.deleteStudent(posStudent);
