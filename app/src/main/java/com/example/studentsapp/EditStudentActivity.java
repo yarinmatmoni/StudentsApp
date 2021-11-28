@@ -60,13 +60,8 @@ public class EditStudentActivity extends AppCompatActivity {
         deleteEdit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(posStudent == data.size()-1){
-                    Log.d("TAG","Last item");
-                }
-                else {
-                    Model.instance.deleteStudent(posStudent);
-                    finish();
-                }
+                Model.instance.deleteStudent(posStudent);
+                finish();
             }
         });
 

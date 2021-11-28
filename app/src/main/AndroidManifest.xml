@@ -17,7 +17,8 @@
             android:exported="false" />
         <activity
             android:name=".StudentDetailsActivity"
-            android:exported="false" />
+            android:noHistory="true"
+            android:exported="true" />
         <activity
             android:name=".StudentsListActivity"
             android:exported="true">
